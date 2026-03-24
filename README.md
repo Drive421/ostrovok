@@ -81,8 +81,7 @@
 ### 0) Скачать репозиторий
 
 ```powershell
-git clone <URL_ЭТОГО_РЕПОЗИТОРИЯ>
-cd <ИМЯ_ПАПКИ_РЕПОЗИТОРИЯ>
+git clone https://github.com/Drive421/ostrovok.git
 ```
 
 ### Важно про Docker
