@@ -82,6 +82,7 @@
 
 ```powershell
 git clone https://github.com/Drive421/ostrovok.git
+cd ostrovok
 ```
 
 ### Важно про Docker
@@ -98,17 +99,23 @@ docker compose ps
 ### 2) Создать и активировать виртуальное окружение
 
 ```powershell
-py -m venv .venv
+py -m venv .venv (или python -m venv .venv)
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 3) Применить миграции
+### 3) Установить зависимости
+
+```powershell
+pip install -r requirements.txt
+```
+
+### 4) Применить миграции
 
 ```powershell
 alembic upgrade head
 ```
 
-### 4) Запустить API
+### 5) Запустить API
 
 ```powershell
 uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
