@@ -7,12 +7,17 @@ from app.schemas.posts import PostCreate, PostPatch, PostResponse
 from app.services.posts_service import PostNotFoundError, PostsService
 from database.session import get_session
 
+from app.services.redis_cache import RedisCache
+
 router = APIRouter(prefix="/posts", tags=["posts"])
 
 
 def get_posts_service(session: AsyncSession = Depends(get_session)) -> PostsService:
     return PostsService(session=session)
 
+def get_posts_service(session: AsyncSession = Depends(get_session)) -> PostsService:
+    return PostsService(session=session, cache=RedisCache())
+    
 
 @router.post("", response_model=PostResponse, status_code=status.HTTP_201_CREATED)
 async def create_post(

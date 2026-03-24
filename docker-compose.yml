@@ -19,6 +19,15 @@ services:
     networks:
       - backend
 
+  redis:
+    image: redis:7
+    container_name: blog_redis
+    ports:
+      - "6380:6379"
+    restart: always
+    networks:
+      - backend
+
 networks:
   backend:
     driver: bridge
